@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Productos — TEKNO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+     <a href="index.html" class="navbar__logo"><img src="./Imagenes/T3.png" alt="Tenko"></a>
+
+      <nav class="navbar__links">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html" class="active">Productos</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <button class="navbar__cart" aria-label="Carrito">
+          🛒 <span>Carrito</span> <span class="badge">0</span>
+        </button>
+        <button class="navbar__burger" id="burgerBtn" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ENCABEZADO -->
+  <section class="page-header">
+    <div class="container">
+      <span class="eyebrow">Catálogo completo</span>
+      <h1>Nuestros productos</h1>
+      <p>Todo lo que necesitás para tu celular, en un solo lugar.</p>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO -->
+  <section class="section">
+    <div class="container">
+      <div class="filters" id="filters"></div>
+      <div class="products__grid" id="productsGrid"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <span class="footer__logo"><img src="./Imagenes/T3.png" alt="Tenko"></span>
+          <p>Tecnología &amp; Accesorios</p>
+        </div>
+        <div class="footer__social">
+          <a href="#" id="footerInstagram" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <span class="icon" data-icon="camera"></span>
+          </a>
+          <a href="#" id="footerWhatsapp" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+            <span class="icon" data-icon="chat"></span>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 Tekno. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

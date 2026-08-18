@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "nombre": "AirPods Pro 3",
+    "categoria": "Audio",
+    "precio": 36000,
+    "emoji": "🎧",
+    "imagen": "./Imagenes/airpods3.jpg",
+    "stock": 0,
+    "descripcion": "<p>AirPods Pro 3 con excelente calidad de sonido y diseño moderno. <strong>Réplica Premium.</strong></p>"
+  },
+  {
+    "id": 2,
+    "nombre": "AirPods 4ta Gen",
+    "categoria": "Audio",
+    "precio": 28000,
+    "emoji": "🎧",
+    "imagen": "./Imagenes/airpods4gen.png",
+    "stock": 0,
+    "descripcion": "<strong>Réplica Premium</strong> con excelente calidad de sonido, diseño moderno y liviano. Ideales para escuchar música, disfrutar de contenido multimedia y realizar llamadas con comodidad durante todo el día."
+  },
+  {
+    "id": 4,
+    "nombre": "Cable USB-C a C 1m",
+    "categoria": "Cables",
+    "precio": 10500,
+    "emoji": "🔗",
+    "imagen": "./Imagenes/CC.jpg",
+    "stock": 0,
+    "descripcion": "Cable resistente y de excelente calidad, ideal para carga rápida y conexión de dispositivos USB-C. <strong>Foxconn</strong>"
+  },
+  {
+    "id": 5,
+    "nombre": "Cable USB-C a Lightnin 1m",
+    "categoria": "Cables",
+    "precio": 10000,
+    "emoji": "🔗",
+    "imagen": "./Imagenes/CL.jpg",
+    "stock": 0,
+    "descripcion": "Cable de excelente calidad, ideal para carga rápida y conexión de dispositivos Lightning. <strong>Foxconn</strong>"
+  }
+]

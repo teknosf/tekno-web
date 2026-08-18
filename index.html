@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TEKNO — Tecnología &amp; Accesorios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo"><img src="./Imagenes/T3.png" alt="Tenko"></a>
+
+      <nav class="navbar__links">
+        <a href="index.html" class="active">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <button class="navbar__cart" aria-label="Carrito">
+          🛒 <span>Carrito</span> <span class="badge">0</span>
+        </button>
+        <button class="navbar__burger" id="burgerBtn" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div>
+        <span class="eyebrow">Tecnología &amp; Accesorios</span>
+        <h1>Tecnología que va con vos.</h1>
+        <p>Productos tecnológicos y accesorios para todos los días.</p>
+        <div class="hero__actions">
+          <a href="productos.html" class="btn btn--primary">Ver productos</a>
+          <a href="contacto.html" class="btn btn--outline">Contactanos</a>
+        </div>
+      </div>
+
+      <div class="hero__art" aria-hidden="true">
+        <div class="hero__blob"></div>
+        <div class="hero__card hero__card--phone">📱</div>
+        <div class="hero__card hero__card--watch">⌚</div>
+        <div class="hero__card hero__card--buds">🎧</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section class="benefits section--tight">
+    <div class="container benefits__grid">
+      <div class="benefit reveal">
+        <span class="icon-wrap"><span class="icon" data-icon="truck"></span></span>
+        <div>
+          <h3>Envíos solo por Santa Fe</h3>
+          <p>Por el momento solo realizamos envios dentro de la ciudad</p>
+        </div>
+      </div>
+      <div class="benefit reveal">
+        <span class="icon-wrap"><span class="icon" data-icon="shield"></span></span>
+        <div>
+          <h3>Compra segura</h3>
+          <p>Pagos y datos siempre protegidos.</p>
+        </div>
+      </div>
+      <div class="benefit reveal">
+        <span class="icon-wrap"><span class="icon" data-icon="chat"></span></span>
+        <div>
+          <h3>Atención personalizada</h3>
+          <p>Te ayudamos por WhatsApp o Instagram.</p>
+        </div>
+      </div>
+      <div class="benefit reveal">
+        <span class="icon-wrap"><span class="icon" data-icon="refresh"></span></span>
+        <div>
+          <h3>Cambios sin cargo</h3>
+          <p>Si algo no anda, te lo cambiamos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORÍAS -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">Categorías</span>
+        <h2>Explorá nuestras categorías</h2>
+      </div>
+      <div class="categories__grid">
+        <a href="productos.html?cat=Audio" class="category-card reveal">
+          <span class="icon-wrap">🎧</span>
+          <span>Audio</span>
+        </a>
+        <a href="productos.html?cat=Cargadores" class="category-card reveal">
+          <span class="icon-wrap">🔌</span>
+          <span>Cargadores</span>
+        </a>
+        <a href="productos.html?cat=Fundas" class="category-card reveal">
+          <span class="icon-wrap">📱</span>
+          <span>Fundas</span>
+        </a>
+        <a href="productos.html?cat=Accesorios" class="category-card reveal">
+          <span class="icon-wrap">⚙️</span>
+          <span>Accesorios</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS DESTACADOS -->
+  <section class="section" style="background: var(--color-background-alt);">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">Catálogo</span>
+        <h2>Elegidos para vos</h2>
+        <p>Los productos más destacados de Tekno.</p>
+      </div>
+      <div class="products__grid" id="previewGrid"></div>
+      <div style="text-align:center; margin-top:36px;">
+        <a href="productos.html" class="btn btn--dark">
+          Ver todo el catálogo
+          <span class="icon" data-icon="arrow"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+<!-- POR QUÉ ELEGIRNOS -->
+<section class="section">
+  <div class="container">
+    <div class="section__head reveal">
+      <span class="eyebrow">Nosotros</span>
+      <h2>¿Por qué elegir TEKNO?</h2>
+    </div>
+    <div class="benefits__grid">
+      <div class="benefit reveal">
+        <span class="icon-wrap"><span class="icon" data-icon="star"></span></span>
+        <div>
+          <h3>Productos seleccionados</h3>
+          <p>Elegimos productos pensando en ofrecer opciones que realmente valgan la pena.</p>
+        </div>
+      </div>
+      <div class="benefit reveal">
+        <span class="icon-wrap"><span class="icon" data-icon="cart"></span></span>
+        <div>
+          <h3>Compra simple y rápida</h3>
+          <p>Encontrá lo que buscás, agregalo al carrito y realizá tu pedido sin vueltas.</p>
+        </div>
+      </div>
+      <div class="benefit reveal">
+        <span class="icon-wrap"><span class="icon" data-icon="sparkle"></span></span>
+        <div>
+          <h3>Nuevos productos</h3>
+          <p>Incorporamos novedades constantemente para que siempre tengas nuevas opciones.</p>
+        </div>
+      </div>
+      <div class="benefit reveal">
+        <span class="icon-wrap"><span class="icon" data-icon="trending"></span></span>
+        <div>
+          <h3>Una tienda que crece</h3>
+          <p>TEKNO está creciendo y queremos construir una experiencia cada vez mejor para nuestros clientes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- CTA FINAL -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2>¿Buscás algo en particular?</h2>
+        <p>Estamos para ayudarte.</p>
+        <a href="contacto.html" class="btn btn--primary">Contactanos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <span class="footer__logo"><img src="./Imagenes/T3.png" alt="Tenko"></span>
+          <p>Tecnología &amp; Accesorios</p>
+        </div>
+        <div class="footer__social">
+          <a href="#" id="footerInstagram" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <span class="icon" data-icon="camera"></span>
+          </a>
+          <a href="#" id="footerWhatsapp" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+            <span class="icon" data-icon="chat"></span>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 Tekno. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto — TEKNO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo"><img src="./Imagenes/T3.png" alt="Tenko"></a>
+
+      <nav class="navbar__links">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="contacto.html" class="active">Contacto</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <button class="navbar__cart" aria-label="Carrito">
+          🛒 <span>Carrito</span> <span class="badge">0</span>
+        </button>
+        <button class="navbar__burger" id="burgerBtn" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ENCABEZADO -->
+  <section class="page-header">
+    <div class="container">
+      <span class="eyebrow">Estamos para ayudarte</span>
+      <h1>Hablemos</h1>
+      <p>Elegí el medio que prefieras, te respondemos rápido.</p>
+    </div>
+  </section>
+
+  <!-- CANALES DE CONTACTO -->
+  <section class="section">
+    <div class="container">
+      <div class="contact__grid">
+        <a href="#" id="whatsappLink" target="_blank" rel="noreferrer" class="contact-channel reveal">
+          <span class="icon-wrap"><span class="icon" data-icon="chat"></span></span>
+          <h3>WhatsApp</h3>
+          <p>Respuesta rápida, de lunes a sábado.</p>
+          <span class="btn btn--primary btn--block">Abrir chat</span>
+        </a>
+
+        <a href="#" id="instagramLink" target="_blank" rel="noreferrer" class="contact-channel reveal">
+          <span class="icon-wrap"><span class="icon" data-icon="camera"></span></span>
+          <h3>Instagram</h3>
+          <p>Novedades, ofertas y stock actualizado.</p>
+          <span class="btn btn--outline btn--block">@tekno.sf</span>
+        </a>
+
+        <form class="contact-form reveal" id="contactForm">
+          <h3>Escribinos</h3>
+          <p>Completá el formulario y se abre tu mail para enviarlo.</p>
+
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="tu@email.com" />
+          </div>
+          <div class="field">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" required placeholder="Contanos en qué te podemos ayudar"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--dark btn--block">Enviar mensaje</button>
+          <p class="form-note">Se va a abrir tu programa de correo con el mensaje ya redactado.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <span class="footer__logo"><img src="./Imagenes/T3.png" alt="Tenko"></span>
+          <p>Tecnología &amp; Accesorios</p>
+        </div>
+        <div class="footer__social">
+          <a href="#" id="footerInstagram" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <span class="icon" data-icon="camera"></span>
+          </a>
+          <a href="#" id="footerWhatsapp" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+            <span class="icon" data-icon="chat"></span>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 Tekno. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
