@@ -3,27 +3,126 @@
 // ============================================================
 
 // ---------- Datos: productos ----------
+// ---------- Datos: productos desde Google Sheets ----------
+
 let productos = [];
+
+const GOOGLE_SHEETS_URL =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vRSdH31trF8eERmCwXOU7Mgy4mq3RzjHWkscWs8c7M-UwtFNOHspYxReFkiMwNMxqEbtzfWEi1uUjJM/pub?output=csv";
+
+function parseCSV(texto) {
+  const filas = [];
+  let fila = [];
+  let campo = "";
+  let dentroDeComillas = false;
+
+  for (let i = 0; i < texto.length; i++) {
+    const caracter = texto[i];
+    const siguiente = texto[i + 1];
+
+    if (caracter === '"' && dentroDeComillas && siguiente === '"') {
+      campo += '"';
+      i++;
+      continue;
+    }
+
+    if (caracter === '"') {
+      dentroDeComillas = !dentroDeComillas;
+      continue;
+    }
+
+    if (caracter === "," && !dentroDeComillas) {
+      fila.push(campo);
+      campo = "";
+      continue;
+    }
+
+    if (
+      (caracter === "\n" || caracter === "\r") &&
+      !dentroDeComillas
+    ) {
+      if (caracter === "\r" && siguiente === "\n") {
+        i++;
+      }
+
+      fila.push(campo);
+      filas.push(fila);
+      fila = [];
+      campo = "";
+      continue;
+    }
+
+    campo += caracter;
+  }
+
+  if (campo !== "" || fila.length > 0) {
+    fila.push(campo);
+    filas.push(fila);
+  }
+
+  return filas;
+}
 
 async function cargarProductos() {
   try {
-    const respuesta = await fetch("./productos.json");
+    // Evita que el navegador use una versión vieja de la hoja
+    const url =
+      GOOGLE_SHEETS_URL +
+      "&cache=" +
+      Date.now();
+
+    const respuesta = await fetch(url);
 
     if (!respuesta.ok) {
-      throw new Error("No se pudo cargar productos.json");
+      throw new Error(
+        "No se pudo cargar Google Sheets"
+      );
     }
 
-    productos = await respuesta.json();
+    const textoCSV = await respuesta.text();
 
-    // Una vez cargados los productos,
-    // iniciamos toda la web
+    const filas = parseCSV(textoCSV);
+
+    // Primera fila = encabezados
+    const encabezados = filas[0];
+
+    productos = filas
+      .slice(1)
+      .filter((fila) => fila.length > 1 && fila[0])
+      .map((fila) => {
+        const producto = {};
+
+        encabezados.forEach((encabezado, index) => {
+          producto[encabezado.trim()] =
+            fila[index]?.trim() || "";
+        });
+
+        return {
+          id: Number(producto.id),
+          nombre: producto.nombre,
+          categoria: producto.categoria,
+          precio: Number(producto.precio),
+          emoji: producto.emoji,
+          imagen: producto.imagen,
+          stock: Number(producto.stock),
+          descripcion: producto.descripcion,
+        };
+      });
+
+    console.log(
+      "Productos cargados desde Google Sheets:",
+      productos
+    );
+
     iniciarWeb();
 
   } catch (error) {
-    console.error("Error al cargar los productos:", error);
+    console.error(
+      "Error al cargar productos desde Google Sheets:",
+      error
+    );
   }
 }
-
 const categorias = [
   "Todos",
   "Audio",
