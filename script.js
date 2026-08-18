@@ -65,28 +65,33 @@ function parseCSV(texto) {
 
 async function cargarProductos() {
   try {
-    // Evita que el navegador use una versión vieja de la hoja
     const url =
       GOOGLE_SHEETS_URL +
       "&cache=" +
       Date.now();
 
-    const respuesta = await fetch(url);
+    const respuesta = await fetch(url, {
+      cache: "no-store",
+    });
 
     if (!respuesta.ok) {
-      throw new Error(
-        "No se pudo cargar Google Sheets"
-      );
+      throw new Error("No se pudo cargar Google Sheets");
     }
 
     const textoCSV = await respuesta.text();
-
+    console.log("========== GOOGLE SHEETS ==========");
+    console.log(textoCSV);
+    console.log("===================================");
     const filas = parseCSV(textoCSV);
 
-    // Primera fila = encabezados
+    if (!filas.length) {
+      console.warn("Google Sheets no devolvió productos.");
+      return;
+    }
+
     const encabezados = filas[0];
 
-    productos = filas
+    const productosNuevos = filas
       .slice(1)
       .filter((fila) => fila.length > 1 && fila[0])
       .map((fila) => {
@@ -109,16 +114,57 @@ async function cargarProductos() {
         };
       });
 
-    console.log(
-      "Productos cargados desde Google Sheets:",
-      productos
-    );
+    // Primera carga
+    if (productos.length === 0) {
+      productos = productosNuevos;
 
-    iniciarWeb();
+      console.log("✅ Productos cargados por primera vez:", productos);
+
+      iniciarWeb();
+      return;
+    }
+
+    // Comparamos antes de reemplazar
+    const productosAnteriores =
+      JSON.stringify(productos);
+      console.log("========== STOCK RECIBIDO ==========");
+
+    productosNuevos.forEach((p) => {
+      console.log(
+        "ID:",
+        p.id,
+        "|",
+        p.nombre,
+        "| STOCK:",
+        p.stock,
+        "| TIPO:",
+        typeof p.stock
+      );
+    });
+
+    console.log("====================================");
+    const datosNuevos =
+      JSON.stringify(productosNuevos);
+
+    // Si realmente cambió algo
+    if (productosAnteriores !== datosNuevos) {
+      console.log("🔄 Cambiaron los productos de Google Sheets");
+
+      productos = productosNuevos;
+
+      // SOLO actualizamos las partes que muestran productos
+      renderPreviewProductos();
+      renderCatalogo();
+      renderCarrito();
+
+      activarReveal();
+    } else {
+      console.log("✓ Sin cambios");
+    }
 
   } catch (error) {
     console.error(
-      "Error al cargar productos desde Google Sheets:",
+      "❌ Error al cargar productos desde Google Sheets:",
       error
     );
   }
@@ -1255,3 +1301,6 @@ function iniciarWeb() {
 document.addEventListener("DOMContentLoaded", () => {
   cargarProductos();
 });
+setInterval(() => {
+  cargarProductos();
+}, 30000);
